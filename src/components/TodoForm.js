@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 
 
 
-function TodoForm() {
-const [input,setInput] = useState('')
+function TodoForm(props) {
+const [input , setInput] = useState('')
 
 
 const handleChange = e => {
@@ -14,13 +14,14 @@ const handleChange = e => {
 }
 
 const handleSubmit = e => {
-    e.preventDefault();
 
-    // props.onSubmit({
-    // id: Math.floor(Math.random() *10000)
-    // });
-    setInput('')
-};
+    e.preventDefault();
+    props.onSubmit({
+        id: Math.floor(Math.random() * 10000),
+        text: input
+      });
+      setInput('');
+    };
 
 
 return(
